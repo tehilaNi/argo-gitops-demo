@@ -6,7 +6,7 @@ autoplay: false
 title: "SUSE presents"
 theme: "custom"
 
-replicaCount: 4
+replicaCount: 1
 
 image:
   repository: boomstack/tetris
