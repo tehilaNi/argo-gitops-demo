@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tetris
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/PyCharmedMe/argo-gitops-demo.git
+    targetRevision: main
+    path: tetris
+
+    helm:
+      valueFiles:
+        - values.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: tetris
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
